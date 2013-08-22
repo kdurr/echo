@@ -14,13 +14,13 @@ end
 
 def playback_last line
   puts "Finally you said: "+line
-  puts "Phew! Glad you got all COUNT of these things off your chest!"
+  puts "Phew! Glad you got all #{@count} of these things off your chest!"
 end
 
   if input == "Nothing!"
     puts "Ok, fine!"
 
-  elsif input == "type" # "I have a lot to say"
+  elsif input == "I have a lot to say"
       puts "Ok, let's hear it!"
     while input != 'done'
     input = gets.chomp
@@ -30,6 +30,8 @@ end
 
   first = responses.first
   last = responses[-2]
+  responses.pop
+  @count = responses.length
 
 responses.each do |x|
   if x == first
