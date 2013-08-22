@@ -6,4 +6,10 @@ def playback line
   puts "You said: "+line
 end
 
-playback(input)
+if input == "Nothing!"
+	puts "Ok, fine!"
+elsif input == "I have a lot to say"
+	puts "I don't have time for that right now!"
+else
+	playback(input)
+end
