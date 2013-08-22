@@ -2,16 +2,25 @@
 puts "What do you want to say?"
 input = gets.chomp
 
-def playback line
+responses = []
+
+def playback_first line
   puts "You said: "+line
 end
 
-responses = []
+def playback_middle line
+  puts "Then, you said: "+line
+end
+
+def playback_last line
+  puts "Finally you said: "+line
+  puts "Phew! Glad you got all COUNT of these things off your chest!"
+end
 
   if input == "Nothing!"
-  	puts "Ok, fine!"
+    puts "Ok, fine!"
 
-  elsif input == "I have a lot to say"
+  elsif input == "type" # "I have a lot to say"
       puts "Ok, let's hear it!"
     while input != 'done'
     input = gets.chomp
@@ -19,6 +28,16 @@ responses = []
     end
   end
 
+  first = responses.first
+  last = responses[-2]
+
 responses.each do |x|
-  playback(x)
+  if x == first
+    playback_first(first.to_s)
+  elsif x == last
+    playback_last(last.to_s)
+  else
+    playback_middle(x)
+  end
 end
+
