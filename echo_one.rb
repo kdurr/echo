@@ -6,10 +6,19 @@ def playback line
   puts "You said: "+line
 end
 
-if input == "Nothing!"
-	puts "Ok, fine!"
-elsif input == "I have a lot to say"
-	puts "I don't have time for that right now!"
-else
-	playback(input)
+responses = []
+
+  if input == "Nothing!"
+  	puts "Ok, fine!"
+
+  elsif input == "I have a lot to say"
+      puts "Ok, let's hear it!"
+    while input != 'done'
+    input = gets.chomp
+    responses << input
+    end
+  end
+
+responses.each do |x|
+  playback(x)
 end
