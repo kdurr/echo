@@ -5,15 +5,15 @@ input = gets.chomp
 responses = []
  
 def playback_first(line)
-  puts "You said: "+line
+  puts "You said: #{line}"
 end
  
 def playback_middle(line)
-  puts "Then, you said: "+line
+  puts "Then, you said: #{line}"
 end
  
 def playback_last(line)
-  puts "Finally you said: "+line
+  puts "Finally you said: #{line}"
   puts "Phew! Glad you got all #{@count} of these things off your chest!"
 end
  
@@ -26,12 +26,22 @@ def validate_file
   end
 end
 
+def open_file
+  puts "Loading speech.txt..."
+  File.read(@file_name)
+end
+
+
+
+
   if input == "Nothing!"
     puts "Ok, fine!"
+
   elsif input == "I have something prepared"
     puts "OK, where can I find what you want to say?"
     validate_file
-
+    puts open_file
+    
 
   elsif input == "I have a lot to say"
       puts "Ok, let's hear it!"
