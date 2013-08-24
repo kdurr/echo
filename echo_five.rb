@@ -13,7 +13,6 @@ def playback_middle(line)
 end
  
 def playback_last(line)
-
   puts "Finally you said: #{line}"
   puts "Phew! Glad you got all #{@count} of these things off your chest!"
 end
@@ -52,12 +51,13 @@ end
   end
  
   first = responses.first
-  last = responses[-2]
-
+  last = responses[-1]
   @count = responses.length
  
 responses.each do |x|
-  if x == first
+  if x == 'done'
+    responses.pop
+  elsif x == first
     playback_first(first.to_s)
   elsif x == last
     playback_last(last.to_s)
