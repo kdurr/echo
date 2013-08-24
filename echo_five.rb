@@ -13,7 +13,7 @@ def playback_middle(line)
 end
  
 def playback_last(line)
-  responses.pop
+
   puts "Finally you said: #{line}"
   puts "Phew! Glad you got all #{@count} of these things off your chest!"
 end
