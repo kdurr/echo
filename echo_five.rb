@@ -30,7 +30,6 @@ def open_file
   File.read(@file_name)
 end
 
-
   if input == "Nothing!"
     puts "Ok, fine!"
 
@@ -43,21 +42,18 @@ end
     responses = file_array
 
   elsif input == "I have a lot to say"
-      puts "Ok, let's hear it!"
-    while input != 'done'
-    input = gets.chomp
-    responses << input
+    puts "Ok, let's hear it!"
+    while (input = gets.chomp) != "done"
+      responses << input
     end
   end
  
   first = responses.first
   last = responses[-1]
   @count = responses.length
- 
+
 responses.each do |x|
-  if x == 'done'
-    responses.pop
-  elsif x == first
+  if x == first
     playback_first(first.to_s)
   elsif x == last
     playback_last(last.to_s)
@@ -65,3 +61,4 @@ responses.each do |x|
     playback_middle(x)
   end
 end
+
