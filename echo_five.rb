@@ -27,11 +27,8 @@ def validate_file
 end
 
 def open_file
-  puts "Loading speech.txt..."
   File.read(@file_name)
 end
-
-
 
 
   if input == "Nothing!"
@@ -40,8 +37,10 @@ end
   elsif input == "I have something prepared"
     puts "OK, where can I find what you want to say?"
     validate_file
-    puts open_file
-    
+    puts "Loading speech.txt..."
+    open_file
+    file_array = open_file.split(/\n/)
+    responses = file_array
 
   elsif input == "I have a lot to say"
       puts "Ok, let's hear it!"
